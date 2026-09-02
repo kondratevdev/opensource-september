@@ -1,0 +1,27 @@
+[importlinter]
+root_package = app
+include_external_packages = True
+exclude_type_checking_imports = True
+
+[importlinter:contract:layers]
+name = Layered architecture of the application
+type = layers
+
+containers =
+    app
+
+layers =
+    (container)
+    infra
+    logic
+
+[importlinter:contract:dependency-injection]
+name = Application layers cannot use the DI container directly
+type = forbidden
+
+source_modules =
+    app.infra
+    app.logic
+
+forbidden_modules =
+    punq

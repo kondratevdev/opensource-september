@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0d1117">
+    <meta
+      name="description"
+      content="Open Source September — a live leaderboard of participating GitHub repositories."
+    >
+    <title>Open Source September — Leaderboard</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <main class="container">
+      <section class="page-intro" aria-labelledby="page-title">
+        <div>
+          <p class="repo-label">opensource-september</p>
+          <h1 id="page-title">Leaderboard</h1>
+          <p class="description">
+            Repositories ranked by issues closed during Open Source September.
+          </p>
+        </div>
+        <a
+          class="source-link"
+          href="https://github.com/kondratevdev/opensource-september"
+        >
+          View on GitHub <span aria-hidden="true">↗</span>
+        </a>
+      </section>
+
+      <section class="summary" aria-label="Event totals">
+        <div class="summary-item">
+          <span class="summary-value" id="total-projects">—</span>
+          <span class="summary-label">Projects</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-value success" id="total-closed">—</span>
+          <span class="summary-label">Closed</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-value" id="total-open">—</span>
+          <span class="summary-label">Open</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-value" id="total-unassigned">—</span>
+          <span class="summary-label">Unassigned</span>
+        </div>
+      </section>
+
+      <section class="leaderboard" aria-labelledby="leaderboard-title">
+        <div class="leaderboard-heading">
+          <div>
+            <h2 id="leaderboard-title">Repositories</h2>
+            <p id="last-updated">Waiting for fresh data…</p>
+          </div>
+          <label class="search-field">
+            <span class="search-icon" aria-hidden="true"></span>
+            <span class="sr-only">Search repositories</span>
+            <input
+              id="project-search"
+              type="search"
+              placeholder="Search repositories"
+              autocomplete="off"
+            >
+          </label>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col" class="rank-column">#</th>
+                <th scope="col">Repository</th>
+                <th scope="col">Completion</th>
+                <th scope="col" class="number-column">Closed</th>
+                <th scope="col" class="number-column">Open</th>
+                <th scope="col" class="action-column">
+                  <span class="sr-only">Open repository</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody id="leaderboard-body"></tbody>
+          </table>
+
+          <div class="table-state" id="loading-state" role="status">
+            <span class="loader" aria-hidden="true"></span>
+            Loading repositories…
+          </div>
+          <div class="table-state" id="empty-state" hidden>
+            No repositories found.
+          </div>
+          <div class="table-state table-state-error" id="error-state" hidden>
+            <strong>Could not load the leaderboard.</strong>
+            <span>Try refreshing the page.</span>
+          </div>
+        </div>
+
+        <footer class="leaderboard-footer">
+          Ranked by closed issues, then by total issues.
+        </footer>
+      </section>
+    </main>
+  </body>
+</html>
