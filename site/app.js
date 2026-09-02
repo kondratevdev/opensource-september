@@ -50,8 +50,16 @@ function renderProject(project, rank) {
   avatar.height = 42;
   avatar.loading = 'lazy';
   const projectDetails = document.createElement('div');
+  const projectLink = makeElement(
+    'a',
+    'project-name',
+    project.repository.full_name,
+  );
+  projectLink.href = project.repository.url;
+  projectLink.target = '_blank';
+  projectLink.rel = 'noreferrer';
   projectDetails.append(
-    makeElement('span', 'project-name', project.repository.full_name),
+    projectLink,
     makeElement(
       'span',
       'project-meta',
@@ -87,15 +95,7 @@ function renderProject(project, rank) {
     numberFormatter.format(project.open_issues),
   );
 
-  const actionCell = makeElement('td', 'action-column');
-  const link = makeElement('a', 'project-link', '→');
-  link.href = project.repository.url;
-  link.target = '_blank';
-  link.rel = 'noreferrer';
-  link.setAttribute('aria-label', `Open ${project.repository.full_name} on GitHub`);
-  actionCell.append(link);
-
-  row.append(rankCell, projectCell, progressCell, closedCell, openCell, actionCell);
+  row.append(rankCell, projectCell, progressCell, closedCell, openCell);
   return row;
 }
 

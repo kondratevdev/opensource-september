@@ -273,11 +273,6 @@ tbody tr:hover {
   text-align: right;
 }
 
-.action-column {
-  width: 56px;
-  text-align: right;
-}
-
 .rank {
   color: var(--muted);
   font-size: 13px;
@@ -312,8 +307,14 @@ tbody tr:hover {
   color: #58a6ff;
   font-size: 14px;
   font-weight: 600;
+  text-decoration: none;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.project-name:hover,
+.project-name:focus-visible {
+  text-decoration: underline;
 }
 
 .project-meta {
@@ -358,24 +359,6 @@ tbody tr:hover {
 
 .metric-number-open {
   color: var(--muted);
-}
-
-.project-link {
-  display: inline-grid;
-  width: 28px;
-  height: 28px;
-  place-items: center;
-  color: var(--muted);
-  font-size: 16px;
-  text-decoration: none;
-  border-radius: 6px;
-}
-
-.project-link:hover,
-.project-link:focus-visible {
-  color: #58a6ff;
-  outline: none;
-  background: var(--surface-muted);
 }
 
 .table-state {
